@@ -1,25 +1,25 @@
 class BotMarshal < Formula
   desc "Egress firewall for AI agents"
   homepage "https://gregbacchus.github.io/bot-marshal/"
-  version "0.5.0"
+  version "0.6.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/gregbacchus/bot-marshal/releases/download/v0.5.0/marshal-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "1c2baf9c5656256605911c5214dfe3f31840793cfa0e2a3bd2bb207a1a78b188"
+      url "https://github.com/gregbacchus/bot-marshal/releases/download/v0.6.0/marshal-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "2aff1111ed561de458aaabdd140ca7e7df503319b028226500a7f7886f6cdfb0"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/gregbacchus/bot-marshal/releases/download/v0.5.0/marshal-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "a33ec5d52a3baf2cc53453194e1848e8cb64824ef77befd84ddbf98e464becf3"
+      url "https://github.com/gregbacchus/bot-marshal/releases/download/v0.6.0/marshal-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "483d6010a26580e35359705a79442774994f7e6c53b3cf3422954ae894a7daba"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/gregbacchus/bot-marshal/releases/download/v0.5.0/marshal-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "afce9924db390cd72d1b4e2481df3503308df833ed90a5c468e8b3a9090ac92d"
+      url "https://github.com/gregbacchus/bot-marshal/releases/download/v0.6.0/marshal-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "eed136d450ecf173061286f1800605bc39babced8e72c5b4c43381ce0a15e4f9"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/gregbacchus/bot-marshal/releases/download/v0.5.0/marshal-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "7e9e022e57a2e1f0aa9f37aafe6bad89bc9dec05c7f86a00216449b2c554874d"
+      url "https://github.com/gregbacchus/bot-marshal/releases/download/v0.6.0/marshal-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "e361d6a30f45ec5f6695284af5bbbcec386ccc8395caf39ca484b6032bd17103"
     end
   end
   license any_of: ["MIT", "Apache-2.0"]
