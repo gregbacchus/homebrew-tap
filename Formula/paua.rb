@@ -2,19 +2,19 @@
 # the result to the tap repository as Formula/paua.rb.
 class Paua < Formula
   desc "Colourful terminal for GNOME"
-  homepage "https://github.com/gregbacchus/paua-termimal"
-  version "0.2.4"
+  homepage "https://github.com/gregbacchus/paua-terminal"
+  version "0.2.5"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/paua-termimal/releases/download/v0.2.4/paua-0.2.4-linux-x86_64.tar.gz"
-    sha256 "7f939d8bcda48f171fdabb26f5d64a5a62a52f132f73412709019fd82d20a33e"
+    url "https://github.com/gregbacchus/paua-terminal/releases/download/v0.2.5/paua-0.2.5-linux-x86_64.tar.gz"
+    sha256 "51a72077582957654d9f3ae3d15aeb1e971570632e9d9f99868a35586fee1e32"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/paua-termimal/releases/download/v0.2.4/paua-0.2.4-linux-aarch64.tar.gz"
-    sha256 "d6795c34d4c14b97be0f3a41a8bd5306b23340a9f2068cfb33a59a999c03a4d5"
+    url "https://github.com/gregbacchus/paua-terminal/releases/download/v0.2.5/paua-0.2.5-linux-aarch64.tar.gz"
+    sha256 "663aadb27ff13c2126f6cc94aff4a594d09189973c6c7f5bc4c487abbd0f70c3"
   end
 
   def install
