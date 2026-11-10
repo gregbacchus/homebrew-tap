@@ -3,18 +3,18 @@
 class Paua < Formula
   desc "Colourful terminal for GNOME"
   homepage "https://github.com/gregbacchus/paua-termimal"
-  version "0.1.4"
+  version "0.1.5"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/paua-termimal/releases/download/v0.1.4/paua-0.1.4-linux-x86_64.tar.gz"
-    sha256 "5d67aa51c15bea998aa79900eb6234bc425c573529ed0ae7c5686cf88210719e"
+    url "https://github.com/gregbacchus/paua-termimal/releases/download/v0.1.5/paua-0.1.5-linux-x86_64.tar.gz"
+    sha256 "2ebde93e6660e3b61f36d24cafd281fbda961c4a5a0d445940368269e9c142ff"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/paua-termimal/releases/download/v0.1.4/paua-0.1.4-linux-aarch64.tar.gz"
-    sha256 "5d0fd0609ab2af52a1c1ed9ec6be961902ab654227010e41133df8a0d4672d4f"
+    url "https://github.com/gregbacchus/paua-termimal/releases/download/v0.1.5/paua-0.1.5-linux-aarch64.tar.gz"
+    sha256 "27c1cc59511bd3dff0093f4bcd39bf08b28014a3072e55db177428ca37277370"
   end
 
   def install
