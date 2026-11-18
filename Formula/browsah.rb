@@ -3,20 +3,20 @@
 class Browsah < Formula
   desc "Web browser: GTK4 shell around Chromium (CEF), native Wayland"
   homepage "https://github.com/gregbacchus/browsah"
-  version "0.1.9"
+  version "0.2.0"
 
   license "MIT"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.9/browsah-0.1.9-linux-x86_64.tar.gz"
-    sha256 "6dbe3913d482a06232d18ac4e7fb75c5d9275c2724fd7d5e75bf28be24ac9b40"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.0/browsah-0.2.0-linux-x86_64.tar.gz"
+    sha256 "cceec70b323c804e7ab577a010ac2b1952344eb9486bc8e8b2ee412130225059"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.9/browsah-0.1.9-linux-aarch64.tar.gz"
-    sha256 "d39847b06e6515f3c2a3accefca23ddc428addce67d83d194c48462cd6cbb936"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.0/browsah-0.2.0-linux-aarch64.tar.gz"
+    sha256 "1187ce14644921138e381897516929467b335793cec2029080e405d3765a360e"
   end
 
   def install
@@ -39,6 +39,11 @@ class Browsah < Formula
     <<~EOS
       browsah uses the system GTK 4 and libadwaita (Ubuntu 24.04 or newer, or a similar distro):
         sudo apt install libgtk-4-1 libadwaita-1-0
+
+      1Password's browser integration refuses a browser you could modify, and a Homebrew install is owned by you. For it, make a
+      root-owned copy (it prints what it will change and asks first):
+        sudo "$(command -v browsah)" system-install --1password
+      then start browsah as /usr/local/bin/browsah. Run it again after `brew upgrade browsah`.
     EOS
   end
 
