@@ -3,20 +3,20 @@
 class Browsah < Formula
   desc "Web browser: GTK4 shell around Chromium (CEF), native Wayland"
   homepage "https://github.com/gregbacchus/browsah"
-  version "0.1.2"
+  version "0.1.3"
 
   license "MIT"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.2/browsah-0.1.2-linux-x86_64.tar.gz"
-    sha256 "b02fdce92a07255faf3bec433ad8522e955f128e20ea6b7622cd2f4a0dad01e4"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.3/browsah-0.1.3-linux-x86_64.tar.gz"
+    sha256 "c082901af5deca947709e82e6cd7430f5064c03034c6d73d2b761527ae0a8796"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.2/browsah-0.1.2-linux-aarch64.tar.gz"
-    sha256 "8a6d5f621a711e4bf2cc9dd53cfe1d3d521c16dcea3e8b0f861ee10b2b252983"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.3/browsah-0.1.3-linux-aarch64.tar.gz"
+    sha256 "17635d9e1131fedc52833afb6fe24356cd9e695c8b778c3d6384b0b7ff2f0f70"
   end
 
   def install
@@ -41,5 +41,7 @@ class Browsah < Formula
   test do
     assert_predicate libexec/"libcef.so", :exist?
     assert_predicate bin/"browsah", :executable?
+    assert_match version.to_s, shell_output("#{bin}/browsah --version")
+    assert_match "usage:", shell_output("#{bin}/browsah --help")
   end
 end
