@@ -3,20 +3,20 @@
 class Browsah < Formula
   desc "Web browser: GTK4 shell around Chromium (CEF), native Wayland"
   homepage "https://github.com/gregbacchus/browsah"
-  version "0.2.0"
+  version "0.2.1"
 
   license "MIT"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.0/browsah-0.2.0-linux-x86_64.tar.gz"
-    sha256 "cceec70b323c804e7ab577a010ac2b1952344eb9486bc8e8b2ee412130225059"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.1/browsah-0.2.1-linux-x86_64.tar.gz"
+    sha256 "8665058ff1ed538bb008ad02ee2f5b381010edc452a7382184ed114defb4eeb6"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.0/browsah-0.2.0-linux-aarch64.tar.gz"
-    sha256 "1187ce14644921138e381897516929467b335793cec2029080e405d3765a360e"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.1/browsah-0.2.1-linux-aarch64.tar.gz"
+    sha256 "bc76192d3c0c0ec6c22634f1890838700213e8d47a475e5777f80b14f1f47b51"
   end
 
   def install
@@ -42,8 +42,9 @@ class Browsah < Formula
 
       1Password's browser integration refuses a browser you could modify, and a Homebrew install is owned by you. For it, make a
       root-owned copy (it prints what it will change and asks first):
-        sudo "$(command -v browsah)" system-install --1password
-      then start browsah as /usr/local/bin/browsah. Run it again after `brew upgrade browsah`.
+        sudo "$(brew --prefix)/bin/browsah" system-install --1password
+      then start browsah as /usr/local/bin/browsah. After `brew upgrade browsah`, update that copy with:
+        browsah system-upgrade
     EOS
   end
 
