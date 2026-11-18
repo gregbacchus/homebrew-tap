@@ -3,30 +3,34 @@
 class Browsah < Formula
   desc "Web browser: GTK4 shell around Chromium (CEF), native Wayland"
   homepage "https://github.com/gregbacchus/browsah"
-  version "0.1.3"
+  version "0.1.4"
 
   license "MIT"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.3/browsah-0.1.3-linux-x86_64.tar.gz"
-    sha256 "c082901af5deca947709e82e6cd7430f5064c03034c6d73d2b761527ae0a8796"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.4/browsah-0.1.4-linux-x86_64.tar.gz"
+    sha256 "e435f320340f95ee4c84b31a02b95d29041a4d6ca9b4097ff5664bb4b4f98a69"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.3/browsah-0.1.3-linux-aarch64.tar.gz"
-    sha256 "17635d9e1131fedc52833afb6fe24356cd9e695c8b778c3d6384b0b7ff2f0f70"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.1.4/browsah-0.1.4-linux-aarch64.tar.gz"
+    sha256 "7f0acc3dd227d062d1c8c2b8a2be3c4e62428d0c1022a32fa18e8c0de9ae324d"
   end
 
   def install
     # The binary needs libcef.so and CEF's resource files beside it, so keep the directory whole and
-    # put a small launcher on the PATH that points the loader at it.
+    # put a small launcher on the PATH that points the loader at it. The launcher uses the stable `opt` paths
+    # (the versioned Cellar directory is removed by the next upgrade) and tells browsah about them, so the
+    # desktop entries it writes keep working after upgrades.
     libexec.install Dir["*"]
     (bin/"browsah").write <<~SH
       #!/bin/sh
-      export LD_LIBRARY_PATH="#{libexec}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-      exec "#{libexec}/browsah" "$@"
+      export BROWSAH_LAUNCHER="#{opt_bin}/browsah"
+      export BROWSAH_LIBS="#{opt_libexec}"
+      export LD_LIBRARY_PATH="#{opt_libexec}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+      exec "#{opt_libexec}/browsah" "$@"
     SH
     (bin/"browsah").chmod 0755
   end
