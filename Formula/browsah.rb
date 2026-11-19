@@ -3,20 +3,20 @@
 class Browsah < Formula
   desc "Web browser: GTK4 shell around Chromium (CEF), native Wayland"
   homepage "https://github.com/gregbacchus/browsah"
-  version "0.2.6"
+  version "0.2.7"
 
   license "MIT"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.6/browsah-0.2.6-linux-x86_64.tar.gz"
-    sha256 "47fcd4d7ae2d5bcc3172e8f72c95b698b9e8cfec677fb29f9346843d14442ba8"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.7/browsah-0.2.7-linux-x86_64.tar.gz"
+    sha256 "8c34cf7986728ef66abc74c99069b61af4c570e7109093e638a0126627eb4c4b"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.6/browsah-0.2.6-linux-aarch64.tar.gz"
-    sha256 "adacf9d3b4ffdb50387beffe7dd36105f3bafd72384a5bf57d636cf1baf46f5a"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.2.7/browsah-0.2.7-linux-aarch64.tar.gz"
+    sha256 "faec673f9bf870120602646e98330850af1918ce396ad764270fde91cee2f522"
   end
 
   def install
@@ -44,7 +44,12 @@ class Browsah < Formula
       root-owned copy (it prints what it will change and asks first):
         sudo "$(brew --prefix)/bin/browsah" system-install --1password
       then start browsah as /usr/local/bin/browsah. After `brew upgrade browsah`, update that copy with:
-        browsah system-upgrade
+        /usr/local/bin/browsah system-upgrade
+
+      On Linux x86-64, optional H.264/AAC codecs can be installed for personal use:
+        browsah codecs install
+      For the root-owned copy, install them separately after each system upgrade:
+        sudo /usr/local/bin/browsah codecs install
     EOS
   end
 
