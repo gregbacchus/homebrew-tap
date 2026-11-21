@@ -3,20 +3,20 @@
 class Browsah < Formula
   desc "Web browser: GTK4 shell around Chromium (CEF), native Wayland"
   homepage "https://github.com/gregbacchus/browsah"
-  version "0.4.3"
+  version "0.4.4"
 
   license "MIT"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.4.3/browsah-0.4.3-linux-x86_64.tar.gz"
-    sha256 "f955181011114c67ed7398ac9e9d96d61e19b8a05d990f02d7ed46126ae7f813"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.4.4/browsah-0.4.4-linux-x86_64.tar.gz"
+    sha256 "dbbc243cf9edc0807005bac6a3a4bd879cb77323fc46c6b427326cce9f3a2f4c"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.4.3/browsah-0.4.3-linux-aarch64.tar.gz"
-    sha256 "7ab1634780658a1c0279d74b68598675c6adbccfd845d55c4cb21b7ceba57df8"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.4.4/browsah-0.4.4-linux-aarch64.tar.gz"
+    sha256 "ce766d1c0a6fdee8af32f2959e663cca712c91df85e6c69c5456b7cff6cc629e"
   end
 
   def install
@@ -29,7 +29,10 @@ class Browsah < Formula
       #!/bin/sh
       export BROWSAH_LAUNCHER="#{opt_bin}/browsah"
       export BROWSAH_LIBS="#{opt_libexec}"
-      export LD_LIBRARY_PATH="#{opt_libexec}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+      # H.264/AAC: the CEF that `browsah codecs install` put in your data folder, ahead of the bundled one.
+      runtime="${XDG_DATA_HOME:-$HOME/.local/share}/browsah/codec-runtime/current"
+      [ -f "$runtime/libcef.so" ] || runtime=""
+      export LD_LIBRARY_PATH="${runtime:+$runtime:}#{opt_libexec}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
       exec "#{opt_libexec}/browsah" "$@"
     SH
     (bin/"browsah").chmod 0755
