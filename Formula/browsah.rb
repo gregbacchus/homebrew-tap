@@ -3,20 +3,20 @@
 class Browsah < Formula
   desc "Web browser: GTK4 shell around Chromium (CEF), native Wayland"
   homepage "https://github.com/gregbacchus/browsah"
-  version "0.6.2"
+  version "0.6.3"
 
   license "MIT"
 
   depends_on :linux
 
   on_intel do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.6.2/browsah-0.6.2-linux-x86_64.tar.gz"
-    sha256 "0b4f0a5d9f057d73cd49242e3df716aaccdd5bf324b66bcf1883cc8c6ddcbb97"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.6.3/browsah-0.6.3-linux-x86_64.tar.gz"
+    sha256 "887172a571f3dc30ceec44a5f2dde74f16e06e9c9c0f47f5c7aefd539a8c923f"
   end
 
   on_arm do
-    url "https://github.com/gregbacchus/browsah/releases/download/v0.6.2/browsah-0.6.2-linux-aarch64.tar.gz"
-    sha256 "c012107fbf6b3891c0f119db2a7926d6770fc696066d884f6407d4fb923afdae"
+    url "https://github.com/gregbacchus/browsah/releases/download/v0.6.3/browsah-0.6.3-linux-aarch64.tar.gz"
+    sha256 "e4e86021d4b850dd53a31f53f3d0ed5d6610fe20b38e30e6847b656680b17db0"
   end
 
   def install
